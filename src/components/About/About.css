@@ -1,0 +1,17 @@
+.text{
+    color:crimson;
+}
+
+.skil{
+background-color: lightgray;
+width: fit-content;
+padding: 5px 20px;
+color: black;
+
+}
+.skils{
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+
+}

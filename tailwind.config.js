@@ -9,12 +9,12 @@ module.exports = {
       mytheme: {
       
 "primary": "#3bd3ce",
-      
+    
 "secondary": "#dbba67",
       
 "accent": "#860fc6",
       
-"neutral": "#2E2A37",
+"neutral": "#cccccc",
       
 "base-100": "#37393E",
       
@@ -33,3 +33,4 @@ module.exports = {
  
   plugins: [require("daisyui")],
 }
+ 
