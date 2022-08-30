@@ -15,7 +15,7 @@ const Navber = () => {
           <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost normal-case text-3xl nav_head ">Darkfam</a>
+    <a class="btn btn-ghost hover:bg-transparent normal-case text-3xl nav_head ">Darkfam</a>
   </div>
   <div class="navbar-end hidden lg:flex">
     <ul class="menu menu-horizontal p-0">

@@ -10,7 +10,7 @@ const Header = () => {
         
             <div className="text-center" >
                 <h5 className=" text-7xl heading_font">Mahtab Khan Noor</h5>
-                <h1 className="text-center items-center justify-center m-h1 text-[28px] w-[80vw] font text-[#cccccc] flex gap-1">
+                <h1 className="text-center items-center justify-center m-h1 text-[28px] w-[80vw]  flex gap-1">
                     <Typewriter options={{
                         
                         autoStart:true,
