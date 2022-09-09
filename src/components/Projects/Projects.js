@@ -9,24 +9,33 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 import "./Projects.scss"; 
-
+import { useSelector, useDispatch } from 'react-redux'
 // import required modules
 import { EffectCoverflow, Autoplay} from "swiper";
+import { projects, projectView } from "../Redux/Action/BookActions";
 
 const Projects = () => {
-    const [books, setbooks] = useState([])
-  
-  
+    const myProjects = useSelector( state => state.projects.projects)
+    const dispatch = useDispatch()
     useEffect(() => {
-      fetch("https://salty-chamber-85536.herokuapp.com/projects")
-        .then((res) => res.json())
-        .then((data) => setbooks(data));
-    }, []);
+        fetch("https://salty-chamber-85536.herokuapp.com/projects")
+          .then((res) => res.json())
+          .then((data) => dispatch(projects(data)));
+   
+    }, [myProjects]);
+
+    const sendProject = (projectDetails) => {
+    dispatch(projectView([]))
+
+    dispatch(projectView(projectDetails))
+    console.log(projectDetails)
+    }
+
   return (
     <div className="pb-14 h-[80vh] w-full">
       <div className="mt-[15vh]">
 
-        <p className='text-center text-3xl mb-10' >Projects</p>
+        <p className='text-5xl font-bold text-center mb-[40px] heading_font_2' >Projects</p>
         <>
       <Swiper
         effect={"coverflow"}
@@ -60,17 +69,24 @@ const Projects = () => {
         modules={[EffectCoverflow, Autoplay]}
         className="mySwiper"
       >
-      {books?.map((book) => (
-              <SwiperSlide key={book._id}>
+      {myProjects?.map((project) => (
+              <SwiperSlide key={project._id}>
         <div class="card">
 <div class="card-img">
-  <img src={book.img} alt="" />
+  <img src={project.img} alt="" />
 </div>
   <div class="card-info flex">
+    <a href={project.code} target="_blank"  class="tooltip"  data-tip="Visit Github">
     <FaGithub className="text-[24px] mr-2 text-white"/>
-    <FaRegEye className="text-[24px] mr-2 text-white"/>
-    <SiWebpack className="text-[24px] mr-2 text-white"/>
-  
+    </a>
+    <label for="project_modal" className=" hover:text-primary duration-500  a" onClick={()=>sendProject(project)} >
+    <FaRegEye className="text-[24px] cursor-pointer  mr-2 text-white" />
+  </label>
+
+    <a href={project?.visit} target="_blank" class="tooltip"  data-tip="Visit Website">
+
+    <SiWebpack className="text-[24px] mr-3 text-white"/>
+    </a>
     
   </div>
 </div>
@@ -79,7 +95,7 @@ const Projects = () => {
       </Swiper>
     </>
     </div>
-
+   
     </div>
   )
 }
