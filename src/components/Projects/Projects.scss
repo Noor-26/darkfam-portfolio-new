@@ -4,6 +4,12 @@
 .swiper-slide-shadow-right{
   background-image: none;
 }
+/* glass background */
+.glass_background {
+  background: linear-gradient(to bottom, rgb(0 0 0 / 60%) 0%, rgb(0 0 0 / 30%) 100%), 
+  radial-gradient(circle at top left, rgb(0 0 0 / 50%), rgb(255 254 254 / 0%));
+  background-blend-mode: screen;
+}
 .product_action{
   position: absolute;
   top: 0;

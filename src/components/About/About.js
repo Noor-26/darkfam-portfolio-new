@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div data-aos="fade-up"
     data-aos-anchor-placement="top-center"
-    data-aos-duration="1000" id="About" className="mx-0 md:mx-[7vw] py-10">
+    data-aos-duration="1000" id="about" className="mx-0 md:mx-[7vw] py-10">
     <div className='text-center'>
         <h5 className="mt-3 pt-3 text ">About</h5>
         <h2 className='pt-1 text-2xl' >Personal Info</h2>

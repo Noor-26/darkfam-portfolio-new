@@ -1,23 +1,27 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import './Contact.css'
 // import emailjs from '@emailjs/browser';
 // import {toast} from 'react-toastify'
 import { HiLocationMarker,HiMail } from 'react-icons/hi';
 import { BsFillTelephoneFill } from 'react-icons/bs';
+import emailjs from 'emailjs-com';
+import {toast} from "react-toastify"
 const Contact = () => {
+
     const form = useRef();
     const sendMail = (e) => {
-    //   toast.success('Email sent')
+      toast.success('Email sent')
       e.preventDefault();
-        // emailjs.sendForm('service_i3h7631', 'template_z5iewo7', form.current, 'e6LBNcx9ezCTU0Xds')
-        //   .then((result) => {
-        //     console.log(result.text);
-        //   }, (error) => {
-        //       toast.error(error.text);
-        //   });
+        emailjs.sendForm("service_i3h7631","template_z5iewo7",form.current,"e6LBNcx9ezCTU0Xds").then((result) => {
+            console.log(result.text);
+          }, (error) => {
+              console.error(error.text);
+          });
+       
           e.target.reset()
     }
-    const comment = useRef()
+   
+  
   return (
     <div className='h-auto  pt-0 md:pt-4 md:pb-5' id="contact">
       <div data-aos="zoom-in-down"
@@ -28,37 +32,38 @@ const Contact = () => {
         </p>
       </div>
         <form className='mx-5' data-aos="fade-right"
-    
-    data-aos-duration="1400">
+  onSubmit={sendMail} ref={form}
+    data-aos-duration="1400" >
         <div className="grid grid-cols-3 gap-2">
 
           <div className="col-span-2 md:col-span-2">
     <div className="grid grid-cols-2 gap-2">
 
         <div class="form__group field ">
-<input required placeholder='Name'  class="form__field  " type="input"  ref={comment}  />
+<input required placeholder='Name'  class="form__field  "  name="from_name" id="from_name" type="input"    />
 <label class="form__label" for="name">Type your Name</label>
 </div>
         <div class="form__group field ">
-<input required placeholder='Email' class="form__field  " type="input"  ref={comment}  />
+<input required placeholder='Email' class="form__field  "  name="email" id="email" type="input"    />
 <label class="form__label" for="name">Type your Email</label>
 </div>
 
 </div>
 
 <div class="form__group field mt-2"> 
-<input required placeholder='Email' class="form__field " type="input"  ref={comment}  />
+<input required placeholder='subject' class="form__field " name="subject" id="subject" type="input"    />
 <label class="form__label" for="name">Type your Subject</label>
 </div>
 
 <div class="form__group field mt-2">
-<textarea name="" id=""class="form__field  " rows="1" placeholder='message' required></textarea>
-<label class="form__label" for="name">Type your Message</label>
+<textarea name="message" id="message" class="form__field"  rows="1" placeholder='message'  required></textarea>
+<label class="form__label" for="name" >Type your Message</label>
 </div>
 
 <div class="text-center text-md-left">
         
-                <button className="mx-auto sendButton mt-2 ">
+                <button className="mx-auto sendButton mt-2 " type='submit' >
+ 
   <div class="svg-wrapper-1">
     <div class="svg-wrapper">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -87,7 +92,7 @@ const Contact = () => {
                 </li>
 
                 <li><HiMail class=" my-3  text-3xl text  mx-auto"/>
-                    <p>mahtabnoor635@gmail.com</p>
+                    <p>mahtabkhannoor@gmail.com</p>
                 </li>
             </ul>
         </div>

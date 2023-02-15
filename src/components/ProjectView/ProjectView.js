@@ -7,6 +7,7 @@ const ProjectView = () => {
   const [datas, setdatas] = useState([])
   const [selectImg, setselectImg] = useState(selectedProject?.img)
 
+  console.log(selectedProject)
   useEffect(() => {
     const details = selectedProject?.details_list?.filter(text => text !=='')
     setdatas(details)
@@ -21,7 +22,7 @@ const ProjectView = () => {
             <img
               alt="Project image"
               className="object-cover object-center rounded "
-              src={selectImg  }
+              src={selectImg }
             />
             </div>
              <div class="col-span-2 md:col-span-1 bg-white mx-1 my-1" onClick={() => setselectImg(selectedProject?.img_2)} >
@@ -75,7 +76,7 @@ const ProjectView = () => {
                 className="flex  text-white bg-green-500 border-0 p-2 px-3 focus:outline-none hover:bg-green-600 rounded"
               
               >
-                Add to Cart
+                visit github
               </button>
               <button
                 className="flex  text-white bg-green-500 border-0 p-2 px-3 focus:outline-none hover:bg-green-600 rounded"
