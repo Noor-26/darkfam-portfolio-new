@@ -21,7 +21,7 @@ const Header = () => {
                 </h1>
                 
                 <div className=''>                    
-                    <a href="https://drive.google.com/file/d/1NcMcLOlHxzGKwotRqoxDYwDx1hJ3THhd/view?usp=sharing"  target="_blank"> <button className=" btn mt-3 uppercase">Download Resume</button></a>            
+                    <a href="https://drive.google.com/file/d/1734CUYXHhwbJr6XWpMRYvBUewIhlPTZn/view?usp=sharing"  target="_blank"> <button className=" btn mt-3 uppercase">Download Resume</button></a>            
             </div>
         
     </div>
