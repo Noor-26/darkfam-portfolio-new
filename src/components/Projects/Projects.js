@@ -16,14 +16,14 @@ import { projects, projectView } from "../Redux/Action/BookActions";
 const Projects = () => {
     const myProjects = useSelector( state => state.projects.projects)
     const dispatch = useDispatch()
-
-
+    const reverseProject = myProjects.reverse()
+  console.log(myProjects)
     useEffect(() => {
         fetch("https://darkfam-portfolio-server.onrender.com/projects")
           .then((res) => res.json())
           .then((data) => dispatch(projects(data)));
    
-    }, [myProjects]);
+    }, []);
 
     const sendProject = (projectDetails) => {
     dispatch(projectView([]))
@@ -39,8 +39,10 @@ const Projects = () => {
         <p className='text-5xl font-bold text-center mb-[40px] heading_font_2' >Projects</p>
         <>
     <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto"   >
-      {myProjects?.map((project) => (
-        <div >
+      {reverseProject.reverse()?.map((project) => (
+        <div data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+        data-aos-duration="3500" >
           <div>
 
            <img src={project.img} alt="" className="rounded-md" />
@@ -58,7 +60,7 @@ const Projects = () => {
     </a>
  
 
-    <a href={project?.visit} target="_blank" class="tooltip"  data-tip="Visit Website">
+    <a href={project?.visit} class="tooltip"  data-tip="Visit Website">
 
     <SiWebpack className="text-[24px]  text-white"/>
     </a>
