@@ -39,7 +39,7 @@ const Projects = () => {
         <p className='text-5xl font-bold text-center mb-[40px] heading_font_2' >Projects</p>
         <>
     <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto"   >
-      {reverseProject.reverse()?.map((project) => (
+      {myProjects?.map((project) => (
         <div>
           <div>
 
