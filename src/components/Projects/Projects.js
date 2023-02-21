@@ -40,9 +40,7 @@ const Projects = () => {
         <>
     <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto"   >
       {reverseProject.reverse()?.map((project) => (
-        <div data-aos="fade-up"
-        data-aos-anchor-placement="top-center"
-        data-aos-duration="3500" >
+        <div>
           <div>
 
            <img src={project.img} alt="" className="rounded-md" />
